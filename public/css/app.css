@@ -1,0 +1,9 @@
+body {
+    background: #f5f7fa;
+    font-family: Arial, sans-serif;
+}
+
+.login-card {
+    max-width: 450px;
+    margin: 80px auto;
+}
