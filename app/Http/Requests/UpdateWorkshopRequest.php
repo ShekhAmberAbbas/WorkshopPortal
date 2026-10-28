@@ -27,7 +27,7 @@ class UpdateWorkshopRequest extends FormRequest
             'trainer_name' => ['required', 'string', 'max:150'],
             'trainer_designation' => ['nullable', 'string', 'max:150'],
             'max_participants' => ['nullable', 'integer', 'min:1', 'max:100000'],
-            'status' => ['required', 'in:draft,active,inactive,completed'],
+            'status' => ['required', 'in:active,inactive'],
             'certificate_template_id' => [
                 'required', 'integer',
                 Rule::exists('certificate_templates', 'id')->where('status', true),

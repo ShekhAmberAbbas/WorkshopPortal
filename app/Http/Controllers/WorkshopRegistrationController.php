@@ -82,7 +82,7 @@ class WorkshopRegistrationController extends Controller
                     ->firstOrFail();
 
                 $participant = $lockedWorkshop->participants()->create([
-                    'name' => trim($validated['name']),
+                    'name' => mb_strtoupper(trim($validated['name']), 'UTF-8'),
                     'email' => strtolower(trim($validated['email'])),
                     'mobile' => preg_replace('/\D+/', '', $validated['mobile']),
                     'whatsapp_number' => preg_replace('/\D+/', '', $validated['whatsapp_number']),

@@ -541,6 +541,8 @@
                         type="text"
                         name="name"
                         value="{{ old('name') }}"
+                        oninput="this.value = this.value.toLocaleUpperCase()"
+                        style="text-transform: uppercase;"
                         placeholder="Enter your full name"
                         class="form-control @error('name') is-invalid @enderror"
                         maxlength="191"

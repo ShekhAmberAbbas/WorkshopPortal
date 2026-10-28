@@ -28,6 +28,10 @@ class StoreParticipantRequest extends FormRequest
             ));
         }
 
+        if ($this->filled('name')) {
+            $this->merge(['name' => mb_strtoupper(trim((string) $this->input('name')), 'UTF-8')]);
+        }
+
         if (! $this->filled('whatsapp_number') && $this->filled('whatsapp')) {
             $this->merge(['whatsapp_number' => $this->input('whatsapp')]);
         }

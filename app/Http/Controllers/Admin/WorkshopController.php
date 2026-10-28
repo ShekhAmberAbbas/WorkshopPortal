@@ -110,7 +110,7 @@ class WorkshopController extends Controller
     public function toggleStatus(Request $request, Workshop $workshop)
     {
         $status = $request->validate([
-            'status' => ['required', 'in:draft,active,inactive,completed'],
+            'status' => ['required', 'in:active,inactive'],
         ])['status'];
 
         $workshop->update(['status' => $status]);

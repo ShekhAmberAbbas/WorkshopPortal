@@ -187,8 +187,8 @@
                 <div class="col-md-4">
                     <label class="form-label">Status <span class="required-mark">*</span></label>
                     <select name="status" class="form-select @error('status') is-invalid @enderror" required>
-                        @foreach (['draft', 'active', 'inactive', 'completed'] as $status)
-                            <option value="{{ $status }}" @selected(old('status', $w?->status ?? 'draft') === $status)>{{ ucfirst($status) }}</option>
+                        @foreach (['active', 'inactive'] as $status)
+                            <option value="{{ $status }}" @selected(old('status', ($w?->status === 'active' ? 'active' : 'inactive')) === $status)>{{ ucfirst($status) }}</option>
                         @endforeach
                     </select>
                     @error('status') <div class="invalid-feedback">{{ $message }}</div> @enderror

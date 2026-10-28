@@ -69,7 +69,7 @@
                     <label class="visually-hidden" for="status-filter">Status</label>
                     <select id="status-filter" name="status" class="form-select">
                         <option value="">All Status</option>
-                        @foreach (['draft', 'active', 'inactive', 'completed'] as $status)
+                        @foreach (['active', 'inactive'] as $status)
                             <option value="{{ $status }}" @selected(request('status') === $status)>{{ ucfirst($status) }}</option>
                         @endforeach
                     </select>
@@ -126,8 +126,8 @@
                                 <form method="POST" action="{{ route('admin.workshops.toggle-status', $workshop) }}">
                                     @csrf
                                     <select name="status" class="form-select form-select-sm status-select" onchange="this.form.submit()" aria-label="Workshop status">
-                                        @foreach (['draft', 'active', 'inactive', 'completed'] as $status)
-                                            <option value="{{ $status }}" @selected($workshop->status === $status)>{{ ucfirst($status) }}</option>
+                                        @foreach (['active', 'inactive'] as $status)
+                                            <option value="{{ $status }}" @selected(($workshop->status === 'active' ? 'active' : 'inactive') === $status)>{{ ucfirst($status) }}</option>
                                         @endforeach
                                     </select>
                                 </form>

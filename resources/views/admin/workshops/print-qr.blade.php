@@ -21,7 +21,7 @@
 <body>
     <h1>{{ $workshop->title }}</h1>
     <p>{{ $workshop->college_name }}</p>
-    <p>{{ $workshop->start_date->format('d M Y') }} &middot; {{ $workshop->duration_label }} {{ Str::plural('Day', $workshop->duration_label) }}</p>
+    <p>{{ $workshop->start_date?->format('d M Y') ?? '—' }} &middot; {{ $workshop->duration_label }}</p>
 
     <img
         src="{{ route('admin.workshops.qr.image', $workshop) }}"
